@@ -1,0 +1,32 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+build/
+dist/
+.venv/
+venv/
+
+# Test / tooling
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Data: never commit copies of harmful-prompt benchmarks or model outputs
+data/
+outputs/
+results/
+*.jsonl
+*.csv
+
+# Env / secrets
+.env
+*.key
+
+# OS / editor
+.DS_Store
+.idea/
+.vscode/
