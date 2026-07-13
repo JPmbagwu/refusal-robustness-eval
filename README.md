@@ -48,6 +48,24 @@ seed prompts            operators                 models              judge
    before any headline number is reported.
 5. **Metrics** — per-operator, per-model degradation relative to the plain-phrasing baseline.
 
+## Example analysis outputs
+
+> **These figures use synthetic, hand-specified data** to show what the harness produces. They are
+> **not** measurements of any model. Real figures will be generated in Months 2–3. Regenerate them
+> with `python scripts/make_example_figures.py` (needs the `plot` extra).
+
+**RQ1 — which operators degrade refusal most?**
+
+![Refusal degradation by operator](docs/figures/degradation_by_operator.png)
+
+**RQ3 — gradual degradation vs a discrete threshold?**
+
+![Compliance vs reformulation strength](docs/figures/strength_curves.png)
+
+**RQ1 across model families — does the ranking hold?**
+
+![Compliance rate by operator and model](docs/figures/operator_model_heatmap.png)
+
 ## Layout
 
 | Path | What it is |
@@ -57,6 +75,8 @@ seed prompts            operators                 models              judge
 | [`src/refusal_robustness/judge.py`](src/refusal_robustness/judge.py) | Compliance-judge interface + reliability hooks |
 | [`src/refusal_robustness/harness.py`](src/refusal_robustness/harness.py) | Runs the operator-by-model matrix |
 | [`src/refusal_robustness/metrics.py`](src/refusal_robustness/metrics.py) | Degradation and agreement metrics |
+| [`src/refusal_robustness/plots.py`](src/refusal_robustness/plots.py) | Figure helpers (metrics → matplotlib) |
+| [`scripts/make_example_figures.py`](scripts/make_example_figures.py) | Renders the illustrative figures above |
 | [`docs/OPERATORS.md`](docs/OPERATORS.md) | Reformulation operator taxonomy |
 | [`docs/ETHICS.md`](docs/ETHICS.md) | Scope, safety norms, responsible disclosure |
 
